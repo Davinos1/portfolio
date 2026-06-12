@@ -1,105 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edward | Portfolio</title>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edward Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <section class="landing">
+  <main class="hero">
 
-        <img src="images/joker background.png" class="bg" alt="Edward Portfolio">
+    <section class="left-menu">
+      <div class="question">WHAT WILL<br><span>YOU</span> DO?</div>
 
-        <!-- Invisible Click Areas -->
-
-        <button class="nav-btn about" data-target="about"></button>
-
-        <button class="nav-btn projects" data-target="projects"></button>
-
-        <button class="nav-btn experience" data-target="experience"></button>
-
-        <button class="nav-btn skills" data-target="skills"></button>
-
-        <button class="nav-btn contact" data-target="contact"></button>
-
+      <nav class="menu">
+        <button class="active" data-section="about">ABOUT ME</button>
+        <button data-section="projects">PROJECTS</button>
+        <button data-section="experience">EXPERIENCE</button>
+        <button data-section="skills">SKILLS</button>
+        <button data-section="contact">CONTACT</button>
+      </nav>
     </section>
 
-    <section id="about" class="content-section">
-        <div class="content-card">
-            <h1>ABOUT ME</h1>
+    <section class="profile-card">
+      <h1><span>E</span>DWARD</h1>
+      <div class="level">
+        <strong>LV.16</strong>
+        <p>IT STUDENT</p>
+      </div>
 
-            <p>
-                Hi, I'm Edward, a 16-year-old IT student passionate
-                about Cyber Security, Infrastructure and Automation.
-            </p>
-
-            <p>
-                I enjoy building labs, monitoring systems,
-                virtualization and learning enterprise technology.
-            </p>
-        </div>
+      <div class="badges">
+        <div>CYBER SECURITY 🔒</div>
+        <div>INFRASTRUCTURE 🌐</div>
+        <div>AUTOMATION ⌨</div>
+      </div>
     </section>
 
-    <section id="projects" class="content-section">
-        <div class="content-card">
-            <h1>PROJECTS</h1>
-
-            <div class="project">
-                <h2>Zabbix Monitoring Server</h2>
-                <p>Infrastructure monitoring platform.</p>
-            </div>
-
-            <div class="project">
-                <h2>Home Assistant</h2>
-                <p>Smart home automation running on VMware.</p>
-            </div>
-        </div>
+    <section class="content-box" id="contentBox">
+      <h2>ABOUT ME</h2>
+      <p>
+        I am an IT student interested in cyber security, infrastructure,
+        automation and building practical technical projects.
+      </p>
     </section>
 
-    <section id="experience" class="content-section">
-        <div class="content-card">
-            <h1>EXPERIENCE</h1>
-
-            <p>
-                Completed Cyber Security Work Experience
-                focusing on digital forensics, cyber defence,
-                incident response and threat analysis.
-            </p>
-        </div>
+    <section class="command">
+      <h3>COMMAND</h3>
+      <p>指示を選択してください</p>
     </section>
 
-    <section id="skills" class="content-section">
-        <div class="content-card">
-            <h1>SKILLS</h1>
-
-            <div class="skill-grid">
-
-                <div class="skill">Cyber Security</div>
-                <div class="skill">VMware</div>
-                <div class="skill">Windows Server</div>
-                <div class="skill">Linux</div>
-                <div class="skill">Networking</div>
-                <div class="skill">Automation</div>
-
-            </div>
-        </div>
+    <section class="quote">
+      <p>
+        TAKING ACTION<br>
+        BUILDS THE FUTURE.<br>
+        I DON'T FOLLOW PATHS,<br>
+        I CREATE THEM.
+      </p>
     </section>
 
-    <section id="contact" class="content-section">
-        <div class="content-card">
-            <h1>CONTACT</h1>
+    <div class="confirm">
+      <span>ENTER</span>
+      CONFIRM
+    </div>
 
-            <p>GitHub: github.com/davinos1</p>
-            <p>Email: your@email.com</p>
-        </div>
-    </section>
+  </main>
 
-    <div id="transition"></div>
-
-    <script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
