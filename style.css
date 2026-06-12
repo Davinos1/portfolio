@@ -1,12 +1,107 @@
-body {
-    font-family: Arial;
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.project {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin: 10px 0;
+body {
+    background: #0f0f0f;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+.background-shapes::before,
+.background-shapes::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    transform: rotate(-12deg);
+}
+
+.background-shapes::before {
+    width: 120vw;
+    height: 300px;
+    background: #c8102e;
+    top: -120px;
+    left: -100px;
+}
+
+.background-shapes::after {
+    width: 120vw;
+    height: 150px;
+    background: #ffffff;
+    top: 120px;
+    left: -50px;
+}
+
+.hero {
+    padding: 120px 10%;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.hero p {
+    margin-top: 15px;
+    font-size: 1.3rem;
+    color: #ddd;
+}
+
+.section-title {
+    padding: 20px 10%;
+}
+
+.section-title h2 {
+    display: inline-block;
+    background: #c8102e;
+    padding: 10px 20px;
+    transform: skew(-15deg);
+    font-size: 2rem;
+}
+
+.projects {
+    padding: 20px 10%;
+    display: grid;
+    gap: 25px;
+}
+
+.project-card {
+    background: #181818;
+    border-left: 8px solid #c8102e;
+    padding: 25px;
+    transform: skew(-3deg);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.project-card:hover {
+    transform: skew(-3deg) translateX(10px);
+    background: #222;
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+}
+
+.project-card p {
+    color: #d0d0d0;
+    line-height: 1.6;
+}
+
+.tag {
+    display: inline-block;
+    background: #c8102e;
+    padding: 5px 12px;
+    margin-bottom: 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
