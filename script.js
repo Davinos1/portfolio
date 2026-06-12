@@ -1,14 +1,31 @@
-function showScreen(screenId){
+const buttons = document.querySelectorAll(".menu-btn");
+const panels = document.querySelectorAll(".panel");
 
-    document
-        .querySelectorAll(".screen")
-        .forEach(screen=>{
+buttons.forEach(button => {
 
-            screen.classList.remove("active");
+    button.addEventListener("click", () => {
 
+        buttons.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        panels.forEach(panel =>
+            panel.classList.remove("active-panel")
+        );
+
+        button.classList.add("active");
+
+        const target =
+            document.getElementById(
+                button.dataset.section
+            );
+
+        target.classList.add("active-panel");
+
+        target.scrollIntoView({
+            behavior: "smooth"
         });
 
-    document
-        .getElementById(screenId)
-        .classList.add("active");
-}
+    });
+
+});

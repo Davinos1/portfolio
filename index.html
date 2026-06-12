@@ -1,195 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edward Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edward | Portfolio</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="background"></div>
+<div class="hero">
 
-<section class="screen active" id="home">
+    <div class="left-menu">
 
-    <div class="command-text">
-        COMMAND
-    </div>
+        <div class="question">
+            WHAT WILL<br><span>YOU</span> DO?
+        </div>
 
-    <div class="menu">
-
-        <button onclick="showScreen('about')">
+        <button class="menu-btn active" data-section="about">
             ABOUT ME
         </button>
 
-        <button onclick="showScreen('projects')">
+        <button class="menu-btn" data-section="projects">
             PROJECTS
         </button>
 
-        <button onclick="showScreen('experience')">
+        <button class="menu-btn" data-section="experience">
             EXPERIENCE
         </button>
 
-        <button onclick="showScreen('skills')">
+        <button class="menu-btn" data-section="skills">
             SKILLS
         </button>
 
-        <button onclick="showScreen('contact')">
+        <button class="menu-btn" data-section="contact">
             CONTACT
         </button>
 
     </div>
 
-    <div class="profile">
+    <div class="character">
+        <img src="images/joker-background.png" alt="Edward">
+    </div>
 
-        <span class="level">
-            LV.16
-        </span>
+    <div class="right-panel">
 
-        <h1>EDWARD</h1>
+        <div class="name-box">
+            <span class="red">ED</span>WARD
+        </div>
 
-        <p>
-            IT STUDENT
-        </p>
+        <div class="level-box">
+            LV.16 | IT STUDENT
+        </div>
 
-        <div class="tags">
-            <span>CYBER SECURITY</span>
-            <span>INFRASTRUCTURE</span>
-            <span>AUTOMATION</span>
+        <div class="stat-box">
+            CYBER SECURITY
+        </div>
+
+        <div class="stat-box">
+            INFRASTRUCTURE
+        </div>
+
+        <div class="stat-box">
+            AUTOMATION
         </div>
 
     </div>
 
-</section>
+</div>
 
-<section class="screen" id="about">
+<div id="content">
 
-    <button class="back" onclick="showScreen('home')">
-        ← COMMAND
-    </button>
-
-    <h2>ABOUT ME</h2>
-
-    <div class="card">
+    <div id="about" class="panel active-panel">
+        <h1>About Me</h1>
 
         <p>
-            I'm Edward, an aspiring IT and Cyber Security professional
-            building practical experience through projects,
-            monitoring platforms, Linux servers and automation.
+            Hi, I'm Edward, a 16 year old IT student with a passion
+            for Cyber Security, Infrastructure and Automation.
         </p>
 
+        <p>
+            I enjoy building home labs, working with VMware,
+            monitoring systems and learning how enterprise
+            environments operate.
+        </p>
     </div>
 
-</section>
+    <div id="projects" class="panel">
 
-<section class="screen" id="projects">
+        <h1>Projects</h1>
 
-    <button class="back" onclick="showScreen('home')">
-        ← COMMAND
-    </button>
-
-    <h2>PROJECTS</h2>
-
-    <div class="card">
-
-        <h3>ZABBIX MONITORING SERVER</h3>
-
-        <p>
-            Built a monitoring solution using VMware and Zabbix.
-        </p>
-
-        <hr>
-
-        <h3>HOME ASSISTANT</h3>
-
-        <p>
-            Configured Home Assistant on Ubuntu running in VMware.
-        </p>
-
-        <hr>
-
-        <h3>CYBER SECURITY WORK EXPERIENCE</h3>
-
-        <p>
-            Participated in cyber security and digital forensics tasks.
-        </p>
-
-    </div>
-
-</section>
-
-<section class="screen" id="experience">
-
-    <button class="back" onclick="showScreen('home')">
-        ← COMMAND
-    </button>
-
-    <h2>EXPERIENCE</h2>
-
-    <div class="card">
-
-        <p>
-            Cyber Security Work Experience
-
-            <br><br>
-
-            Contributed to investigations,
-            presentations and technical activities.
-        </p>
-
-    </div>
-
-</section>
-
-<section class="screen" id="skills">
-
-    <button class="back" onclick="showScreen('home')">
-        ← COMMAND
-    </button>
-
-    <h2>SKILLS</h2>
-
-    <div class="card">
-
-        <div class="skill">
-            VMware ████████░░
+        <div class="card">
+            <h3>Zabbix Monitoring Server</h3>
+            <p>Monitoring infrastructure and services.</p>
         </div>
 
-        <div class="skill">
-            Linux ███████░░░
-        </div>
-
-        <div class="skill">
-            Monitoring ███████░░░
-        </div>
-
-        <div class="skill">
-            Cyber Security ██████░░░░
+        <div class="card">
+            <h3>Home Assistant</h3>
+            <p>Smart home automation running on VMware.</p>
         </div>
 
     </div>
 
-</section>
-
-<section class="screen" id="contact">
-
-    <button class="back" onclick="showScreen('home')">
-        ← COMMAND
-    </button>
-
-    <h2>CONTACT</h2>
-
-    <div class="card">
+    <div id="experience" class="panel">
+        <h1>Experience</h1>
 
         <p>
-            Add your email address here.
+            Completed Cyber Security work experience focused on:
         </p>
+
+        <ul>
+            <li>Digital Forensics</li>
+            <li>Cyber Defence</li>
+            <li>Threat Analysis</li>
+            <li>Presentation Creation</li>
+        </ul>
+    </div>
+
+    <div id="skills" class="panel">
+
+        <h1>Skills</h1>
+
+        <div class="skill">Windows Server</div>
+        <div class="skill">Linux</div>
+        <div class="skill">VMware</div>
+        <div class="skill">Networking</div>
+        <div class="skill">Cyber Security</div>
 
     </div>
 
-</section>
+    <div id="contact" class="panel">
+
+        <h1>Contact</h1>
+
+        <p>Email: your@email.com</p>
+        <p>GitHub: github.com/davinos1</p>
+
+    </div>
+
+</div>
 
 <script src="script.js"></script>
 
