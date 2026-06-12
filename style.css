@@ -47,13 +47,11 @@ body{
 .nav-btn{
     position:absolute;
 
-    border:none;
-    background:transparent;
+    background:rgba(255,0,0,0.4);
+    border:3px solid yellow;
 
+    z-index:1000;
     cursor:pointer;
-    z-index:50;
-
-    transition:all .2s ease;
 }
 
 /*
