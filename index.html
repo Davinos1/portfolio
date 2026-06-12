@@ -1,70 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edward Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edward | Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <main class="hero">
+    <main class="hero">
 
-    <section class="left-menu">
-      <div class="question">WHAT WILL<br><span>YOU</span> DO?</div>
+        <!-- LEFT MENU -->
 
-      <nav class="menu">
-        <button class="active" data-section="about">ABOUT ME</button>
-        <button data-section="projects">PROJECTS</button>
-        <button data-section="experience">EXPERIENCE</button>
-        <button data-section="skills">SKILLS</button>
-        <button data-section="contact">CONTACT</button>
-      </nav>
-    </section>
+        <section class="left-menu">
 
-    <section class="profile-card">
-      <h1><span>E</span>DWARD</h1>
-      <div class="level">
-        <strong>LV.16</strong>
-        <p>IT STUDENT</p>
-      </div>
+            <div class="question">
+                WHAT WILL<br>
+                <span>YOU</span> DO?
+            </div>
 
-      <div class="badges">
-        <div>CYBER SECURITY 🔒</div>
-        <div>INFRASTRUCTURE 🌐</div>
-        <div>AUTOMATION ⌨</div>
-      </div>
-    </section>
+            <nav class="menu">
+                <button class="active" data-section="about">
+                    ABOUT ME
+                </button>
 
-    <section class="content-box" id="contentBox">
-      <h2>ABOUT ME</h2>
-      <p>
-        I am an IT student interested in cyber security, infrastructure,
-        automation and building practical technical projects.
-      </p>
-    </section>
+                <button data-section="projects">
+                    PROJECTS
+                </button>
 
-    <section class="command">
-      <h3>COMMAND</h3>
-      <p>指示を選択してください</p>
-    </section>
+                <button data-section="experience">
+                    EXPERIENCE
+                </button>
 
-    <section class="quote">
-      <p>
-        TAKING ACTION<br>
-        BUILDS THE FUTURE.<br>
-        I DON'T FOLLOW PATHS,<br>
-        I CREATE THEM.
-      </p>
-    </section>
+                <button data-section="skills">
+                    SKILLS
+                </button>
 
-    <div class="confirm">
-      <span>ENTER</span>
-      CONFIRM
-    </div>
+                <button data-section="contact">
+                    CONTACT
+                </button>
+            </nav>
 
-  </main>
+        </section>
 
-  <script src="script.js"></script>
+        <!-- RIGHT PROFILE -->
+
+        <section class="profile-card">
+
+            <h1>
+                <span>E</span>DWARD
+            </h1>
+
+            <div class="level">
+                <strong>LV.16</strong>
+                <p>IT STUDENT</p>
+            </div>
+
+            <div class="badges">
+                <div>CYBER SECURITY 🔒</div>
+                <div>INFRASTRUCTURE 🌐</div>
+                <div>AUTOMATION ⌨</div>
+            </div>
+
+        </section>
+
+        <!-- PORTFOLIO TEXT -->
+
+        <section class="command">
+            <h3>PORTFOLIO</h3>
+        </section>
+
+        <!-- QUOTE -->
+
+        <section class="quote">
+            <p>
+                TAKING ACTION<br>
+                BUILDS THE FUTURE.<br>
+                I DON'T FOLLOW PATHS,<br>
+                I CREATE THEM.
+            </p>
+        </section>
+
+        <!-- PERSONA PAGE OVERLAY -->
+
+        <div class="transition-overlay"></div>
+
+        <section class="page-view" id="pageView">
+
+            <button id="backBtn">
+                ← BACK
+            </button>
+
+            <div class="page-content">
+
+                <h1 id="pageTitle">
+                    ABOUT ME
+                </h1>
+
+                <div id="pageBody"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
