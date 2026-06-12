@@ -2,101 +2,248 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ed's Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="red-slash"></div>
-<div class="white-slash"></div>
-<div class="noise"></div>
+<div class="cursor-glow"></div>
 
-<header class="top-bar">
-    <div class="logo">ED.exe</div>
+<header class="navbar">
+    <div class="logo">ED<span>.</span>PORTFOLIO</div>
+
     <nav>
+        <a href="#home">Home</a>
         <a href="#projects">Projects</a>
-        <a href="#skills">Stats</a>
+        <a href="#skills">Skills</a>
+        <a href="#journey">Journey</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
 
-<main class="hero">
-    <section class="profile-card">
-        <p class="label">PLAYER PROFILE</p>
-        <h1>EDWARD</h1>
-        <h2>Aspiring IT & Cybersecurity Professional</h2>
+<section id="home" class="hero">
+    <div class="hero-content reveal">
+        <p class="eyebrow">IT • CYBER SECURITY • INFRASTRUCTURE</p>
 
-        <div class="meta">
-            <span>LV 16</span>
-            <span>CLASS: TECH STUDENT</span>
-            <span>STATUS: LEARNING</span>
+        <h1>
+            Building digital systems,
+            <span>one project at a time.</span>
+        </h1>
+
+        <p class="hero-text">
+            I'm Edward, an aspiring IT and cybersecurity professional learning through real projects,
+            virtual machines, monitoring tools, Linux servers and automation.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#projects" class="btn primary">View Projects</a>
+            <a href="#contact" class="btn secondary">Contact Me</a>
         </div>
-    </section>
 
-    <section class="command-menu">
-        <button onclick="scrollToSection('projects')">PROJECTS</button>
-        <button onclick="scrollToSection('skills')">STATS</button>
-        <button onclick="scrollToSection('contact')">CONTACT</button>
-    </section>
-</main>
+        <div class="hero-stats">
+            <div>
+                <strong>02+</strong>
+                <span>Projects</span>
+            </div>
+            <div>
+                <strong>VMware</strong>
+                <span>Lab Skills</span>
+            </div>
+            <div>
+                <strong>Cyber</strong>
+                <span>Career Goal</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-visual reveal">
+        <div class="scene-card">
+            <div class="sun"></div>
+            <div class="mountain mountain-one"></div>
+            <div class="mountain mountain-two"></div>
+            <div class="mountain mountain-three"></div>
+            <div class="lake"></div>
+
+            <div class="floating-panel panel-one">
+                <span>Status</span>
+                <strong>Learning</strong>
+            </div>
+
+            <div class="floating-panel panel-two">
+                <span>Focus</span>
+                <strong>Cybersecurity</strong>
+            </div>
+
+            <div class="floating-panel panel-three">
+                <span>Mode</span>
+                <strong>Build Lab</strong>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section id="projects" class="section">
-    <h2 class="section-heading">PROJECTS</h2>
+    <div class="section-header reveal">
+        <p class="eyebrow">Selected Work</p>
+        <h2>Projects</h2>
+        <p>Click a project to open the full breakdown.</p>
+    </div>
 
     <div class="project-grid">
-        <div class="project-card" onclick="openModal('zabbix')">
-            <span class="rank">RANK 03</span>
-            <h3>ZABBIX SERVER</h3>
-            <p>Monitoring server built with VMware and Zabbix.</p>
-            <strong>OPEN FILE →</strong>
+        <article class="project-card reveal" data-project="zabbix">
+            <div class="project-icon">📊</div>
+            <p class="project-type">Monitoring / Infrastructure</p>
+            <h3>Zabbix Monitoring Server</h3>
+            <p>
+                Built a monitoring solution using VMware and Zabbix to practise infrastructure monitoring.
+            </p>
+            <button>Open Project →</button>
+        </article>
+
+        <article class="project-card reveal" data-project="homeassistant">
+            <div class="project-icon">🏠</div>
+            <p class="project-type">Automation / Linux</p>
+            <h3>Home Assistant</h3>
+            <p>
+                Configured Home Assistant on Ubuntu in VMware for smart home automation learning.
+            </p>
+            <button>Open Project →</button>
+        </article>
+
+        <article class="project-card reveal" data-project="cyber">
+            <div class="project-icon">🛡️</div>
+            <p class="project-type">Cyber Security / Work Experience</p>
+            <h3>Cyber Security Work Experience</h3>
+            <p>
+                Took part in cyber security and digital forensics activities, including team investigation work.
+            </p>
+            <button>Open Project →</button>
+        </article>
+    </div>
+</section>
+
+<section id="skills" class="section skills-section">
+    <div class="section-header reveal">
+        <p class="eyebrow">Technical Growth</p>
+        <h2>Skills</h2>
+        <p>Areas I'm actively learning and improving.</p>
+    </div>
+
+    <div class="skills-grid">
+        <div class="skill-card reveal">
+            <div class="skill-top">
+                <span>VMware</span>
+                <strong>75%</strong>
+            </div>
+            <div class="bar"><div data-width="75"></div></div>
         </div>
 
-        <div class="project-card" onclick="openModal('homeassistant')">
-            <span class="rank">RANK 02</span>
-            <h3>HOME ASSISTANT</h3>
-            <p>Smart home platform configured on Ubuntu in VMware.</p>
-            <strong>OPEN FILE →</strong>
+        <div class="skill-card reveal">
+            <div class="skill-top">
+                <span>Linux</span>
+                <strong>65%</strong>
+            </div>
+            <div class="bar"><div data-width="65"></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+            <div class="skill-top">
+                <span>Monitoring</span>
+                <strong>70%</strong>
+            </div>
+            <div class="bar"><div data-width="70"></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+            <div class="skill-top">
+                <span>Cybersecurity</span>
+                <strong>60%</strong>
+            </div>
+            <div class="bar"><div data-width="60"></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+            <div class="skill-top">
+                <span>Networking</span>
+                <strong>55%</strong>
+            </div>
+            <div class="bar"><div data-width="55"></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+            <div class="skill-top">
+                <span>Troubleshooting</span>
+                <strong>80%</strong>
+            </div>
+            <div class="bar"><div data-width="80"></div></div>
         </div>
     </div>
 </section>
 
-<section id="skills" class="section">
-    <h2 class="section-heading">TECH STATS</h2>
+<section id="journey" class="section">
+    <div class="section-header reveal">
+        <p class="eyebrow">My Path</p>
+        <h2>Journey</h2>
+        <p>What I'm building towards.</p>
+    </div>
 
-    <div class="stats-panel">
-        <div class="stat">
-            <span>VMWARE</span>
-            <div><b style="width:75%"></b></div>
+    <div class="timeline">
+        <div class="timeline-item reveal">
+            <span>01</span>
+            <div>
+                <h3>Started building IT projects</h3>
+                <p>Using virtual machines, Linux and real tools instead of just reading theory.</p>
+            </div>
         </div>
 
-        <div class="stat">
-            <span>LINUX</span>
-            <div><b style="width:65%"></b></div>
+        <div class="timeline-item reveal">
+            <span>02</span>
+            <div>
+                <h3>Monitoring and automation</h3>
+                <p>Built Zabbix and Home Assistant projects to practise practical infrastructure work.</p>
+            </div>
         </div>
 
-        <div class="stat">
-            <span>CYBERSECURITY</span>
-            <div><b style="width:55%"></b></div>
-        </div>
-
-        <div class="stat">
-            <span>MONITORING</span>
-            <div><b style="width:70%"></b></div>
+        <div class="timeline-item reveal">
+            <span>03</span>
+            <div>
+                <h3>Cybersecurity focus</h3>
+                <p>Developing skills in troubleshooting, investigation, security awareness and technical documentation.</p>
+            </div>
         </div>
     </div>
 </section>
 
-<section id="contact" class="section contact">
-    <h2 class="section-heading">CONTACT</h2>
-    <p>Ready to learn, build, troubleshoot, and improve.</p>
+<section id="contact" class="section contact-section">
+    <div class="contact-card reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Ready to build more.</h2>
+        <p>
+            I'm interested in IT, cybersecurity, infrastructure, monitoring and hands-on technical projects.
+        </p>
+        <a href="mailto:your-email@example.com" class="btn primary">Email Me</a>
+    </div>
 </section>
 
-<div id="modal" class="modal">
-    <div class="modal-box">
-        <button class="close" onclick="closeModal()">X</button>
-        <h2 id="modal-title"></h2>
-        <p id="modal-type"></p>
-        <div id="modal-body"></div>
+<div class="modal" id="projectModal">
+    <div class="modal-content">
+        <button class="modal-close" id="modalClose">×</button>
+        <p class="eyebrow" id="modalCategory"></p>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+
+        <div class="modal-details">
+            <div>
+                <h4>What I Did</h4>
+                <ul id="modalTasks"></ul>
+            </div>
+
+            <div>
+                <h4>Skills Used</h4>
+                <ul id="modalSkills"></ul>
+            </div>
+        </div>
     </div>
 </div>
 
