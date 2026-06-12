@@ -1,125 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ed's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edward Portfolio</title>
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="grain"></div>
+<div class="background"></div>
 
 <section class="screen active" id="home">
-    <div class="command-bg">COMMAND</div>
 
-    <div class="menu-panel">
-        <button onclick="showScreen('about')">About Me</button>
-        <button onclick="showScreen('projects')">Projects</button>
-        <button onclick="showScreen('experience')">Experience</button>
-        <button onclick="showScreen('skills')">Skills</button>
-        <button onclick="showScreen('contact')">Contact</button>
+    <div class="command-text">
+        COMMAND
     </div>
 
-    <div class="hero-title">
-        <p>LV.16 / IT STUDENT</p>
+    <div class="menu">
+
+        <button onclick="showScreen('about')">
+            ABOUT ME
+        </button>
+
+        <button onclick="showScreen('projects')">
+            PROJECTS
+        </button>
+
+        <button onclick="showScreen('experience')">
+            EXPERIENCE
+        </button>
+
+        <button onclick="showScreen('skills')">
+            SKILLS
+        </button>
+
+        <button onclick="showScreen('contact')">
+            CONTACT
+        </button>
+
+    </div>
+
+    <div class="profile">
+
+        <span class="level">
+            LV.16
+        </span>
+
         <h1>EDWARD</h1>
-        <span>Cyber Security • Infrastructure • Automation</span>
+
+        <p>
+            IT STUDENT
+        </p>
+
+        <div class="tags">
+            <span>CYBER SECURITY</span>
+            <span>INFRASTRUCTURE</span>
+            <span>AUTOMATION</span>
+        </div>
+
     </div>
+
 </section>
 
 <section class="screen" id="about">
-    <button class="back" onclick="showScreen('home')">← COMMAND</button>
+
+    <button class="back" onclick="showScreen('home')">
+        ← COMMAND
+    </button>
+
     <h2>ABOUT ME</h2>
 
-    <div class="content-card">
-        <h3>PROFILE</h3>
+    <div class="card">
+
         <p>
-            I'm Edward, an aspiring IT and cybersecurity professional learning through hands-on projects,
-            virtual machines, Linux, monitoring tools and automation.
+            I'm Edward, an aspiring IT and Cyber Security professional
+            building practical experience through projects,
+            monitoring platforms, Linux servers and automation.
         </p>
 
-        <div class="info-grid">
-            <div><strong>CLASS</strong><span>IT Student</span></div>
-            <div><strong>FOCUS</strong><span>Cyber Security</span></div>
-            <div><strong>STYLE</strong><span>Hands-on Learning</span></div>
-            <div><strong>STATUS</strong><span>Building Skills</span></div>
-        </div>
     </div>
+
 </section>
 
 <section class="screen" id="projects">
-    <button class="back" onclick="showScreen('home')">← COMMAND</button>
+
+    <button class="back" onclick="showScreen('home')">
+        ← COMMAND
+    </button>
+
     <h2>PROJECTS</h2>
 
-    <div class="project-list">
-        <div class="project" onclick="openProject('zabbix')">
-            <span>RANK 03</span>
-            <h3>ZABBIX SERVER</h3>
-            <p>Monitoring / Infrastructure</p>
-        </div>
+    <div class="card">
 
-        <div class="project" onclick="openProject('homeassistant')">
-            <span>RANK 02</span>
-            <h3>HOME ASSISTANT</h3>
-            <p>Automation / Linux</p>
-        </div>
+        <h3>ZABBIX MONITORING SERVER</h3>
 
-        <div class="project" onclick="openProject('cyber')">
-            <span>RANK 01</span>
-            <h3>CYBER WORK EXPERIENCE</h3>
-            <p>Cyber Security / Digital Forensics</p>
-        </div>
+        <p>
+            Built a monitoring solution using VMware and Zabbix.
+        </p>
+
+        <hr>
+
+        <h3>HOME ASSISTANT</h3>
+
+        <p>
+            Configured Home Assistant on Ubuntu running in VMware.
+        </p>
+
+        <hr>
+
+        <h3>CYBER SECURITY WORK EXPERIENCE</h3>
+
+        <p>
+            Participated in cyber security and digital forensics tasks.
+        </p>
+
     </div>
+
 </section>
 
 <section class="screen" id="experience">
-    <button class="back" onclick="showScreen('home')">← COMMAND</button>
+
+    <button class="back" onclick="showScreen('home')">
+        ← COMMAND
+    </button>
+
     <h2>EXPERIENCE</h2>
 
-    <div class="content-card">
-        <h3>CYBER SECURITY WORK EXPERIENCE</h3>
+    <div class="card">
+
         <p>
-            Completed cyber security and digital forensics activities, contributed to team tasks,
-            helped with presentation material and developed a stronger understanding of technical careers.
+            Cyber Security Work Experience
+
+            <br><br>
+
+            Contributed to investigations,
+            presentations and technical activities.
         </p>
+
     </div>
+
 </section>
 
 <section class="screen" id="skills">
-    <button class="back" onclick="showScreen('home')">← COMMAND</button>
+
+    <button class="back" onclick="showScreen('home')">
+        ← COMMAND
+    </button>
+
     <h2>SKILLS</h2>
 
-    <div class="stats-card">
-        <div class="stat"><span>VMWARE</span><b>████████░░</b></div>
-        <div class="stat"><span>LINUX</span><b>███████░░░</b></div>
-        <div class="stat"><span>MONITORING</span><b>███████░░░</b></div>
-        <div class="stat"><span>CYBER SECURITY</span><b>██████░░░░</b></div>
-        <div class="stat"><span>TROUBLESHOOTING</span><b>████████░░</b></div>
+    <div class="card">
+
+        <div class="skill">
+            VMware ████████░░
+        </div>
+
+        <div class="skill">
+            Linux ███████░░░
+        </div>
+
+        <div class="skill">
+            Monitoring ███████░░░
+        </div>
+
+        <div class="skill">
+            Cyber Security ██████░░░░
+        </div>
+
     </div>
+
 </section>
 
 <section class="screen" id="contact">
-    <button class="back" onclick="showScreen('home')">← COMMAND</button>
+
+    <button class="back" onclick="showScreen('home')">
+        ← COMMAND
+    </button>
+
     <h2>CONTACT</h2>
 
-    <div class="content-card">
-        <h3>GET IN TOUCH</h3>
-        <p>Interested in IT, cyber security, infrastructure and technical projects.</p>
-        <a href="mailto:your-email@example.com">EMAIL ME</a>
+    <div class="card">
+
+        <p>
+            Add your email address here.
+        </p>
+
     </div>
+
 </section>
 
-<div class="modal" id="projectModal">
-    <div class="modal-box">
-        <button class="close" onclick="closeProject()">X</button>
-        <p id="projectRank"></p>
-        <h2 id="projectTitle"></h2>
-        <p id="projectDesc"></p>
-        <ul id="projectTasks"></ul>
-    </div>
-</div>
-
 <script src="script.js"></script>
+
 </body>
 </html>
