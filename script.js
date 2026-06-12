@@ -1,177 +1,267 @@
-const cursorGlow = document.querySelector(".cursor-glow");
-const sceneCard = document.querySelector(".scene-card");
+// ===============================
+// Cursor Glow
+// ===============================
 
-document.addEventListener("mousemove", (event) => {
-    cursorGlow.style.left = `${event.clientX}px`;
-    cursorGlow.style.top = `${event.clientY}px`;
+const glow = document.querySelector(".cursor-glow");
 
-    if (sceneCard) {
-        const x = (event.clientX / window.innerWidth - 0.5) * 12;
-        const y = (event.clientY / window.innerHeight - 0.5) * -12;
+document.addEventListener("mousemove", (e) => {
+    if (!glow) return;
 
-        sceneCard.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+    glow.style.left = `${e.clientX}px`;
+    glow.style.top = `${e.clientY}px`;
+});
+
+// ===============================
+// Scroll Reveal
+// ===============================
+
+const reveals = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    },
+    {
+        threshold: 0.15
     }
+);
+
+reveals.forEach(item => {
+    revealObserver.observe(item);
 });
 
-const revealElements = document.querySelectorAll(".reveal");
-
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
-    });
-}, {
-    threshold: 0.15
-});
-
-revealElements.forEach((element) => {
-    revealObserver.observe(element);
-});
+// ===============================
+// Skill Bar Animation
+// ===============================
 
 const skillBars = document.querySelectorAll(".bar div");
 
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            const width = entry.target.getAttribute("data-width");
-            entry.target.style.width = `${width}%`;
-        }
-    });
-}, {
-    threshold: 0.6
-});
+const skillObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
 
-skillBars.forEach((bar) => {
+            if (!entry.isIntersecting) return;
+
+            const width = entry.target.dataset.width;
+
+            entry.target.style.width = `${width}%`;
+        });
+    },
+    {
+        threshold: 0.5
+    }
+);
+
+skillBars.forEach(bar => {
     skillObserver.observe(bar);
 });
 
-const projectData = {
+// ===============================
+// Project Database
+// ===============================
+
+const projects = {
+
     zabbix: {
         category: "Monitoring / Infrastructure",
+
         title: "Zabbix Monitoring Server",
+
         description:
-            "I built a Zabbix monitoring server to learn how real IT teams monitor infrastructure, servers and services. This helped me understand alerts, dashboards, uptime checks and basic infrastructure visibility.",
+            "A monitoring platform built using VMware and Zabbix to learn how enterprise environments monitor infrastructure, servers and services.",
+
         tasks: [
-            "Created a virtual machine using VMware",
-            "Installed and configured a Zabbix server",
-            "Added monitored hosts and services",
-            "Used dashboards to view system health",
-            "Practised troubleshooting monitoring issues"
-        ],
-        skills: [
-            "VMware",
-            "Linux",
-            "Zabbix",
-            "Monitoring",
-            "Troubleshooting"
+            "Installed Zabbix Server",
+            "Configured VMware virtual machines",
+            "Added monitored hosts",
+            "Created dashboards",
+            "Configured alerts and monitoring checks",
+            "Practised troubleshooting infrastructure issues"
         ]
     },
 
     homeassistant: {
         category: "Automation / Linux",
+
         title: "Home Assistant",
+
         description:
-            "I configured Home Assistant on Ubuntu inside VMware to practise Linux, dashboards, smart home automation and service management.",
+            "Built a Home Assistant environment on Ubuntu running inside VMware to learn automation and Linux administration.",
+
         tasks: [
-            "Created an Ubuntu virtual machine",
-            "Installed and configured Home Assistant",
-            "Tested dashboards and integrations",
-            "Created basic automation workflows",
-            "Practised managing a Linux-based service"
-        ],
-        skills: [
-            "Ubuntu",
-            "VMware",
-            "Home Assistant",
-            "Automation",
-            "Dashboards"
+            "Installed Ubuntu Server",
+            "Configured Home Assistant",
+            "Connected smart devices",
+            "Built automations",
+            "Created dashboards",
+            "Managed Linux services"
         ]
     },
 
     cyber: {
-        category: "Cyber Security / Work Experience",
+        category: "Cyber Security",
+
         title: "Cyber Security Work Experience",
+
         description:
-            "I completed cyber security and digital forensics work experience where I contributed to team tasks, investigation work and presentation material.",
+            "Completed cyber security and digital forensics work experience including investigations, research and technical presentations.",
+
         tasks: [
-            "Worked as part of a team on a cyber scenario",
-            "Explored digital forensics concepts",
-            "Contributed to presentation material",
-            "Practised communicating technical ideas",
-            "Developed stronger interest in cyber security"
-        ],
-        skills: [
-            "Cyber Security",
-            "Digital Forensics",
-            "Teamwork",
-            "Research",
-            "Presentation"
+            "Worked in a cyber security team",
+            "Participated in investigations",
+            "Produced presentation material",
+            "Learned digital forensics concepts",
+            "Improved technical communication",
+            "Developed understanding of cyber careers"
         ]
     }
 };
 
+// ===============================
+// Modal Elements
+// ===============================
+
 const modal = document.getElementById("projectModal");
+
 const modalClose = document.getElementById("modalClose");
+
 const modalCategory = document.getElementById("modalCategory");
+
 const modalTitle = document.getElementById("modalTitle");
+
 const modalDescription = document.getElementById("modalDescription");
+
 const modalTasks = document.getElementById("modalTasks");
-const modalSkills = document.getElementById("modalSkills");
 
-document.querySelectorAll(".project-card").forEach((card) => {
-    card.addEventListener("mousemove", (event) => {
-        const rect = card.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
+// ===============================
+// Open Modal
+// ===============================
 
-        card.style.setProperty("--x", `${x}px`);
-        card.style.setProperty("--y", `${y}px`);
-    });
+document.querySelectorAll(".project-card").forEach(card => {
 
     card.addEventListener("click", () => {
-        const projectId = card.getAttribute("data-project");
-        const project = projectData[projectId];
 
-        modalCategory.textContent = project.category;
-        modalTitle.textContent = project.title;
-        modalDescription.textContent = project.description;
+        const projectId = card.dataset.project;
+
+        const project = projects[projectId];
+
+        modalCategory.textContent =
+            project.category;
+
+        modalTitle.textContent =
+            project.title;
+
+        modalDescription.textContent =
+            project.description;
 
         modalTasks.innerHTML = "";
-        modalSkills.innerHTML = "";
 
-        project.tasks.forEach((task) => {
-            const li = document.createElement("li");
+        project.tasks.forEach(task => {
+
+            const li =
+                document.createElement("li");
+
             li.textContent = task;
-            modalTasks.appendChild(li);
-        });
 
-        project.skills.forEach((skill) => {
-            const li = document.createElement("li");
-            li.textContent = skill;
-            modalSkills.appendChild(li);
+            modalTasks.appendChild(li);
+
         });
 
         modal.classList.add("active");
+
         document.body.style.overflow = "hidden";
+
     });
+
 });
+
+// ===============================
+// Close Modal
+// ===============================
 
 function closeModal() {
+
     modal.classList.remove("active");
+
     document.body.style.overflow = "";
+
 }
 
-modalClose.addEventListener("click", closeModal);
+modalClose.addEventListener(
+    "click",
+    closeModal
+);
 
-modal.addEventListener("click", (event) => {
-    if (event.target === modal) {
-        closeModal();
-    }
-});
+// Click outside modal
 
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        closeModal();
+modal.addEventListener(
+    "click",
+    (e) => {
+
+        if (e.target === modal) {
+
+            closeModal();
+
+        }
+
     }
+);
+
+// Escape key
+
+document.addEventListener(
+    "keydown",
+    (e) => {
+
+        if (
+            e.key === "Escape" &&
+            modal.classList.contains("active")
+        ) {
+            closeModal();
+        }
+
+    }
+);
+
+// ===============================
+// Card Hover Tilt Effect
+// ===============================
+
+document.querySelectorAll(".project-card").forEach(card => {
+
+    card.addEventListener("mousemove", (e) => {
+
+        const rect =
+            card.getBoundingClientRect();
+
+        const x =
+            e.clientX - rect.left;
+
+        const y =
+            e.clientY - rect.top;
+
+        const rotateX =
+            ((y / rect.height) - 0.5) * -10;
+
+        const rotateY =
+            ((x / rect.width) - 0.5) * 10;
+
+        card.style.transform =
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-8px)`;
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "";
+
+    });
+
 });
