@@ -1,58 +1,275 @@
-const projects = {
+// ======================================
+// Screen Navigation
+// ======================================
+
+const screens = document.querySelectorAll(".screen");
+
+function showScreen(screenId) {
+
+    screens.forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    document
+        .getElementById(screenId)
+        .classList.add("active");
+
+}
+
+// ======================================
+// Project Database
+// ======================================
+
+const projectData = {
+
     zabbix: {
+        rank: "RANK 03",
         title: "ZABBIX SERVER",
-        type: "CATEGORY: MONITORING / INFRASTRUCTURE",
-        body: `
-            <p>I built a monitoring solution using VMware and Zabbix to track infrastructure health and practise real-world system monitoring.</p>
-            <ul>
-                <li>Created a virtual server in VMware</li>
-                <li>Installed and configured Zabbix</li>
-                <li>Set up monitoring for systems and services</li>
-                <li>Used dashboards to check uptime and system health</li>
-                <li>Improved my troubleshooting and infrastructure skills</li>
-            </ul>
-        `
+
+        description:
+            "A monitoring platform built using VMware and Zabbix to learn how enterprise environments monitor infrastructure, servers and services.",
+
+        tasks: [
+            "Installed Zabbix Server",
+            "Configured VMware virtual machines",
+            "Created monitoring dashboards",
+            "Added monitored hosts",
+            "Configured alerts",
+            "Practised infrastructure troubleshooting"
+        ]
     },
+
     homeassistant: {
+        rank: "RANK 02",
         title: "HOME ASSISTANT",
-        type: "CATEGORY: AUTOMATION / LINUX",
-        body: `
-            <p>I configured Home Assistant on Ubuntu inside VMware to learn about Linux, automation, and managing smart home services.</p>
-            <ul>
-                <li>Installed Ubuntu in a virtual machine</li>
-                <li>Configured Home Assistant</li>
-                <li>Tested dashboards and integrations</li>
-                <li>Created basic automation workflows</li>
-                <li>Practised Linux server management</li>
-            </ul>
-        `
+
+        description:
+            "Built a Home Assistant environment running on Ubuntu inside VMware to learn Linux administration and automation.",
+
+        tasks: [
+            "Installed Ubuntu Server",
+            "Configured Home Assistant",
+            "Built automation workflows",
+            "Created dashboards",
+            "Connected integrations",
+            "Managed Linux services"
+        ]
+    },
+
+    cyber: {
+        rank: "RANK 01",
+        title: "CYBER WORK EXPERIENCE",
+
+        description:
+            "Completed cyber security and digital forensics work experience involving investigation, teamwork and presentation work.",
+
+        tasks: [
+            "Worked on cyber security activities",
+            "Participated in investigations",
+            "Produced presentation material",
+            "Explored digital forensics",
+            "Improved communication skills",
+            "Learned cyber security concepts"
+        ]
     }
+
 };
 
-function openModal(projectId) {
-    const project = projects[projectId];
+// ======================================
+// Modal Elements
+// ======================================
 
-    document.getElementById("modal-title").innerHTML = project.title;
-    document.getElementById("modal-type").innerHTML = project.type;
-    document.getElementById("modal-body").innerHTML = project.body;
+const modal =
+    document.getElementById("projectModal");
 
-    document.getElementById("modal").classList.add("active");
-}
+const rankField =
+    document.getElementById("projectRank");
 
-function closeModal() {
-    document.getElementById("modal").classList.remove("active");
-}
+const titleField =
+    document.getElementById("projectTitle");
 
-function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({
-        behavior: "smooth"
+const descField =
+    document.getElementById("projectDesc");
+
+const tasksField =
+    document.getElementById("projectTasks");
+
+// ======================================
+// Open Project
+// ======================================
+
+function openProject(projectId) {
+
+    const project =
+        projectData[projectId];
+
+    rankField.innerHTML =
+        project.rank;
+
+    titleField.innerHTML =
+        project.title;
+
+    descField.innerHTML =
+        project.description;
+
+    tasksField.innerHTML = "";
+
+    project.tasks.forEach(task => {
+
+        const li =
+            document.createElement("li");
+
+        li.innerHTML = task;
+
+        tasksField.appendChild(li);
+
     });
+
+    modal.classList.add("active");
+
 }
 
-window.onclick = function(event) {
-    const modal = document.getElementById("modal");
+// ======================================
+// Close Project
+// ======================================
+
+function closeProject() {
+
+    modal.classList.remove("active");
+
+}
+
+// ======================================
+// Close Modal Click Outside
+// ======================================
+
+modal.addEventListener("click", (event) => {
 
     if (event.target === modal) {
-        closeModal();
+
+        closeProject();
+
     }
-};
+
+});
+
+// ======================================
+// ESC Key Close
+// ======================================
+
+document.addEventListener("keydown", (event) => {
+
+    if (
+        event.key === "Escape" &&
+        modal.classList.contains("active")
+    ) {
+
+        closeProject();
+
+    }
+
+});
+
+// ======================================
+// Persona Menu Animation
+// ======================================
+
+const menuButtons =
+    document.querySelectorAll(".menu-panel button");
+
+menuButtons.forEach(button => {
+
+    button.addEventListener("mouseenter", () => {
+
+        button.style.transform =
+            "translateX(20px) rotate(-4deg) scale(1.08)";
+
+    });
+
+    button.addEventListener("mouseleave", () => {
+
+        button.style.transform = "";
+
+    });
+
+});
+
+// ======================================
+// Optional Keyboard Navigation
+// ======================================
+
+const menuOrder = [
+    "about",
+    "projects",
+    "experience",
+    "skills",
+    "contact"
+];
+
+let currentSelection = 0;
+
+document.addEventListener("keydown", (event) => {
+
+    if (
+        document.getElementById("home")
+        .classList.contains("active")
+    ) {
+
+        if (event.key === "ArrowDown") {
+
+            currentSelection++;
+
+            if (
+                currentSelection >
+                menuOrder.length - 1
+            ) {
+                currentSelection = 0;
+            }
+
+            highlightMenu();
+        }
+
+        if (event.key === "ArrowUp") {
+
+            currentSelection--;
+
+            if (currentSelection < 0) {
+                currentSelection =
+                    menuOrder.length - 1;
+            }
+
+            highlightMenu();
+        }
+
+        if (event.key === "Enter") {
+
+            showScreen(
+                menuOrder[currentSelection]
+            );
+
+        }
+
+    }
+
+});
+
+function highlightMenu() {
+
+    menuButtons.forEach(btn => {
+
+        btn.classList.remove("selected");
+
+    });
+
+    if (
+        menuButtons[currentSelection]
+    ) {
+
+        menuButtons[currentSelection]
+            .classList.add("selected");
+
+    }
+
+}
+
+highlightMenu();
