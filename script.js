@@ -1,30 +1,30 @@
-const buttons = document.querySelectorAll(".menu-btn");
-const panels = document.querySelectorAll(".panel");
+const buttons = document.querySelectorAll(".nav-btn");
+const transition = document.getElementById("transition");
 
 buttons.forEach(button => {
 
     button.addEventListener("click", () => {
 
-        buttons.forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-        panels.forEach(panel =>
-            panel.classList.remove("active-panel")
-        );
-
-        button.classList.add("active");
-
         const target =
             document.getElementById(
-                button.dataset.section
+                button.dataset.target
             );
 
-        target.classList.add("active-panel");
+        transition.classList.add("active");
 
-        target.scrollIntoView({
-            behavior: "smooth"
-        });
+        setTimeout(() => {
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }, 250);
+
+        setTimeout(() => {
+
+            transition.classList.remove("active");
+
+        }, 600);
 
     });
 

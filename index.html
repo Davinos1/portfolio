@@ -9,138 +9,97 @@
 </head>
 <body>
 
-<div class="hero">
+    <section class="landing">
 
-    <div class="left-menu">
+        <img src="images/joker-background.png" class="bg" alt="Edward Portfolio">
 
-        <div class="question">
-            WHAT WILL<br><span>YOU</span> DO?
+        <!-- Invisible Click Areas -->
+
+        <button class="nav-btn about" data-target="about"></button>
+
+        <button class="nav-btn projects" data-target="projects"></button>
+
+        <button class="nav-btn experience" data-target="experience"></button>
+
+        <button class="nav-btn skills" data-target="skills"></button>
+
+        <button class="nav-btn contact" data-target="contact"></button>
+
+    </section>
+
+    <section id="about" class="content-section">
+        <div class="content-card">
+            <h1>ABOUT ME</h1>
+
+            <p>
+                Hi, I'm Edward, a 16-year-old IT student passionate
+                about Cyber Security, Infrastructure and Automation.
+            </p>
+
+            <p>
+                I enjoy building labs, monitoring systems,
+                virtualization and learning enterprise technology.
+            </p>
         </div>
+    </section>
 
-        <button class="menu-btn active" data-section="about">
-            ABOUT ME
-        </button>
+    <section id="projects" class="content-section">
+        <div class="content-card">
+            <h1>PROJECTS</h1>
 
-        <button class="menu-btn" data-section="projects">
-            PROJECTS
-        </button>
+            <div class="project">
+                <h2>Zabbix Monitoring Server</h2>
+                <p>Infrastructure monitoring platform.</p>
+            </div>
 
-        <button class="menu-btn" data-section="experience">
-            EXPERIENCE
-        </button>
-
-        <button class="menu-btn" data-section="skills">
-            SKILLS
-        </button>
-
-        <button class="menu-btn" data-section="contact">
-            CONTACT
-        </button>
-
-    </div>
-
-    <div class="character">
-        <img src="images/joker-background.png" alt="Edward">
-    </div>
-
-    <div class="right-panel">
-
-        <div class="name-box">
-            <span class="red">ED</span>WARD
+            <div class="project">
+                <h2>Home Assistant</h2>
+                <p>Smart home automation running on VMware.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="level-box">
-            LV.16 | IT STUDENT
+    <section id="experience" class="content-section">
+        <div class="content-card">
+            <h1>EXPERIENCE</h1>
+
+            <p>
+                Completed Cyber Security Work Experience
+                focusing on digital forensics, cyber defence,
+                incident response and threat analysis.
+            </p>
         </div>
+    </section>
 
-        <div class="stat-box">
-            CYBER SECURITY
+    <section id="skills" class="content-section">
+        <div class="content-card">
+            <h1>SKILLS</h1>
+
+            <div class="skill-grid">
+
+                <div class="skill">Cyber Security</div>
+                <div class="skill">VMware</div>
+                <div class="skill">Windows Server</div>
+                <div class="skill">Linux</div>
+                <div class="skill">Networking</div>
+                <div class="skill">Automation</div>
+
+            </div>
         </div>
+    </section>
 
-        <div class="stat-box">
-            INFRASTRUCTURE
+    <section id="contact" class="content-section">
+        <div class="content-card">
+            <h1>CONTACT</h1>
+
+            <p>GitHub: github.com/davinos1</p>
+            <p>Email: your@email.com</p>
         </div>
+    </section>
 
-        <div class="stat-box">
-            AUTOMATION
-        </div>
+    <div id="transition"></div>
 
-    </div>
-
-</div>
-
-<div id="content">
-
-    <div id="about" class="panel active-panel">
-        <h1>About Me</h1>
-
-        <p>
-            Hi, I'm Edward, a 16 year old IT student with a passion
-            for Cyber Security, Infrastructure and Automation.
-        </p>
-
-        <p>
-            I enjoy building home labs, working with VMware,
-            monitoring systems and learning how enterprise
-            environments operate.
-        </p>
-    </div>
-
-    <div id="projects" class="panel">
-
-        <h1>Projects</h1>
-
-        <div class="card">
-            <h3>Zabbix Monitoring Server</h3>
-            <p>Monitoring infrastructure and services.</p>
-        </div>
-
-        <div class="card">
-            <h3>Home Assistant</h3>
-            <p>Smart home automation running on VMware.</p>
-        </div>
-
-    </div>
-
-    <div id="experience" class="panel">
-        <h1>Experience</h1>
-
-        <p>
-            Completed Cyber Security work experience focused on:
-        </p>
-
-        <ul>
-            <li>Digital Forensics</li>
-            <li>Cyber Defence</li>
-            <li>Threat Analysis</li>
-            <li>Presentation Creation</li>
-        </ul>
-    </div>
-
-    <div id="skills" class="panel">
-
-        <h1>Skills</h1>
-
-        <div class="skill">Windows Server</div>
-        <div class="skill">Linux</div>
-        <div class="skill">VMware</div>
-        <div class="skill">Networking</div>
-        <div class="skill">Cyber Security</div>
-
-    </div>
-
-    <div id="contact" class="panel">
-
-        <h1>Contact</h1>
-
-        <p>Email: your@email.com</p>
-        <p>GitHub: github.com/davinos1</p>
-
-    </div>
-
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
