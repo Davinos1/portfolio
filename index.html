@@ -7,32 +7,99 @@
 </head>
 <body>
 
-<div class="background-shapes"></div>
+<div class="red-slash"></div>
+<div class="white-slash"></div>
+<div class="noise"></div>
 
-<header class="hero">
-    <h1>ED'S PORTFOLIO</h1>
-    <p>Aspiring IT & Cybersecurity Professional</p>
+<header class="top-bar">
+    <div class="logo">ED.exe</div>
+    <nav>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Stats</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
-<section class="section-title">
-    <h2>PROJECTS</h2>
+<main class="hero">
+    <section class="profile-card">
+        <p class="label">PLAYER PROFILE</p>
+        <h1>EDWARD</h1>
+        <h2>Aspiring IT & Cybersecurity Professional</h2>
+
+        <div class="meta">
+            <span>LV 16</span>
+            <span>CLASS: TECH STUDENT</span>
+            <span>STATUS: LEARNING</span>
+        </div>
+    </section>
+
+    <section class="command-menu">
+        <button onclick="scrollToSection('projects')">PROJECTS</button>
+        <button onclick="scrollToSection('skills')">STATS</button>
+        <button onclick="scrollToSection('contact')">CONTACT</button>
+    </section>
+</main>
+
+<section id="projects" class="section">
+    <h2 class="section-heading">PROJECTS</h2>
+
+    <div class="project-grid">
+        <div class="project-card" onclick="openModal('zabbix')">
+            <span class="rank">RANK 03</span>
+            <h3>ZABBIX SERVER</h3>
+            <p>Monitoring server built with VMware and Zabbix.</p>
+            <strong>OPEN FILE →</strong>
+        </div>
+
+        <div class="project-card" onclick="openModal('homeassistant')">
+            <span class="rank">RANK 02</span>
+            <h3>HOME ASSISTANT</h3>
+            <p>Smart home platform configured on Ubuntu in VMware.</p>
+            <strong>OPEN FILE →</strong>
+        </div>
+    </div>
 </section>
 
-<div class="projects">
+<section id="skills" class="section">
+    <h2 class="section-heading">TECH STATS</h2>
 
-    <div class="project-card">
-        <span class="tag">MONITORING</span>
-        <h3>Zabbix Monitoring Server</h3>
-        <p>Built a monitoring platform using VMware and Zabbix to monitor systems, services, and infrastructure.</p>
+    <div class="stats-panel">
+        <div class="stat">
+            <span>VMWARE</span>
+            <div><b style="width:75%"></b></div>
+        </div>
+
+        <div class="stat">
+            <span>LINUX</span>
+            <div><b style="width:65%"></b></div>
+        </div>
+
+        <div class="stat">
+            <span>CYBERSECURITY</span>
+            <div><b style="width:55%"></b></div>
+        </div>
+
+        <div class="stat">
+            <span>MONITORING</span>
+            <div><b style="width:70%"></b></div>
+        </div>
     </div>
+</section>
 
-    <div class="project-card">
-        <span class="tag">AUTOMATION</span>
-        <h3>Home Assistant</h3>
-        <p>Configured Home Assistant on Ubuntu running in VMware with smart home integrations and automation.</p>
+<section id="contact" class="section contact">
+    <h2 class="section-heading">CONTACT</h2>
+    <p>Ready to learn, build, troubleshoot, and improve.</p>
+</section>
+
+<div id="modal" class="modal">
+    <div class="modal-box">
+        <button class="close" onclick="closeModal()">X</button>
+        <h2 id="modal-title"></h2>
+        <p id="modal-type"></p>
+        <div id="modal-body"></div>
     </div>
-
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>
