@@ -1,3 +1,7 @@
+/* =========================
+   GLOBAL
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -12,38 +16,63 @@ body{
     background:#000;
     overflow-x:hidden;
     font-family:Arial, Helvetica, sans-serif;
+    color:white;
 }
 
-/* HERO */
+/* =========================
+   LANDING PAGE
+========================= */
 
 .landing{
     position:relative;
     width:100%;
     height:100vh;
+
+    background-image:url("images/joker background.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 }
+
+/* Hide image tag if still present */
 
 .bg{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+    display:none;
 }
 
-/* INVISIBLE BUTTONS */
+/* =========================
+   CLICKABLE MENU AREAS
+========================= */
 
 .nav-btn{
     position:absolute;
-    background:transparent;
+
     border:none;
+    background:transparent;
+
     cursor:pointer;
-    z-index:5;
+    z-index:50;
+
+    transition:all .2s ease;
 }
+
+/*
+TEMPORARY DEBUG
+
+Uncomment these if you want
+to see where buttons are.
+
+background:rgba(255,0,0,.3);
+border:2px solid red;
+*/
 
 /* ABOUT */
 
 .about{
-    left:24%;
+    left:23%;
     top:17%;
-    width:19%;
+
+    width:22%;
     height:10%;
 }
 
@@ -52,7 +81,8 @@ body{
 .projects{
     left:26%;
     top:30%;
-    width:18%;
+
+    width:20%;
     height:8%;
 }
 
@@ -61,7 +91,8 @@ body{
 .experience{
     left:26%;
     top:43%;
-    width:21%;
+
+    width:24%;
     height:8%;
 }
 
@@ -70,6 +101,7 @@ body{
 .skills{
     left:26%;
     top:56%;
+
     width:18%;
     height:8%;
 }
@@ -79,99 +111,170 @@ body{
 .contact{
     left:26%;
     top:69%;
+
     width:18%;
     height:8%;
 }
 
-/* HOVER GLOW */
-
 .nav-btn:hover{
-    box-shadow:
-    0 0 30px rgba(255,0,0,.8);
+    transform:scale(1.05);
 }
 
-/* CONTENT */
+/* =========================
+   CONTENT SECTIONS
+========================= */
 
 .content-section{
     min-height:100vh;
-    background:#080808;
-    padding:100px;
+
+    background:#050505;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:80px 30px;
 }
 
 .content-card{
+    width:100%;
     max-width:1200px;
-    margin:auto;
+
     background:#111;
-    border-left:10px solid #ff0000;
-    padding:60px;
+
+    border-left:8px solid #ff0000;
+
+    padding:50px;
+
+    box-shadow:
+    0 0 30px rgba(255,0,0,.15);
 }
 
 .content-card h1{
-    font-size:4rem;
     color:#ff0000;
-    margin-bottom:30px;
+
+    font-size:4rem;
+
+    margin-bottom:25px;
 }
 
 .content-card p{
-    color:white;
     line-height:1.8;
-    font-size:1.2rem;
+
+    font-size:1.15rem;
 }
 
+/* =========================
+   PROJECTS
+========================= */
+
 .project{
-    margin-top:30px;
+    background:#1a1a1a;
+
+    padding:25px;
+
+    margin-top:20px;
+
+    border-left:4px solid red;
 }
 
 .project h2{
-    color:white;
+    color:#fff;
+
     margin-bottom:10px;
 }
 
+/* =========================
+   SKILLS
+========================= */
+
 .skill-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
     gap:20px;
 }
 
 .skill{
     background:#ff0000;
+
     color:white;
+
     text-align:center;
-    padding:25px;
-    font-size:1.2rem;
+
+    padding:20px;
+
     font-weight:bold;
+
+    font-size:1.1rem;
+
+    transition:.3s;
 }
 
-/* PERSONA WIPE */
+.skill:hover{
+    transform:translateY(-5px);
+}
+
+/* =========================
+   PERSONA TRANSITION
+========================= */
 
 #transition{
     position:fixed;
+
     top:0;
-    left:-100%;
-    width:100%;
+    left:-120%;
+
+    width:120%;
     height:100%;
+
     background:#ff0000;
-    z-index:999;
+
+    z-index:9999;
+
     pointer-events:none;
 }
 
 #transition.active{
-    animation:slash .6s ease;
+    animation:personaSlash .7s ease;
 }
 
-@keyframes slash{
+@keyframes personaSlash{
 
     0%{
-        left:-100%;
-        transform:skewX(-20deg);
+        left:-120%;
+        transform:skewX(-25deg);
     }
 
     50%{
         left:0;
+        transform:skewX(-25deg);
     }
 
     100%{
-        left:100%;
-        transform:skewX(-20deg);
+        left:120%;
+        transform:skewX(-25deg);
     }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1000px){
+
+    .landing{
+        background-position:center;
+    }
+
+    .content-card h1{
+        font-size:2.5rem;
+    }
+
+    .content-card{
+        padding:30px;
+    }
+
 }
